@@ -116,8 +116,6 @@ class LinkedList:
 
     def insertSorted(self, data):
         """Insert a node while maintaining ascending sorted order."""
-        # Case 1: List is empty
-        # Case 2: Insert at the front
         if self.head == self.tail == None:
             self.insertAtFront(data)
         else:
@@ -138,29 +136,3 @@ class LinkedList:
             current.data = min_node.data
             min_node.data = temp
             current = current.next
-
-# Usage Example
-if __name__ == "__main__":
-    ll = LinkedList()
-
-    ll.insert(10)
-    ll.insert(20)
-    ll.insert(30)
-
-    ll.traverse()  # Output: 10 -> 20 -> 30 -> None
-
-    ll.find(20)    # Output: Node with data 20 found.
-    ll.find(40)    # Output: Node with data 40 not found.
-
-    ll.remove(30)  # Removing the tail
-    ll.traverse()  # Output: 10 -> 20 -> None
-
-    ll.remove(10)  # Removing the head
-    ll.traverse()  # Output: 20 -> None
-
-    ll.remove(20)  # Removing the last remaining node
-    ll.traverse()  # Output: None
-
-    # Now list is empty; insert again
-    ll.insert(50)
-    ll.traverse()  # Output: 50 -> None
